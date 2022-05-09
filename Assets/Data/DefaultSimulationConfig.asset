@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edf45f561d34062a2fa9c9370dc096b, type: 3}
+  m_Name: DefaultSimulationConfig
+  m_EditorClassIdentifier: 
+  InitialNumBoids: 100
+  InitialBoidMinSpeed: 0.1
+  InitialBoidMaxSpeed: 2
+  Alignment: 54.6
+  AlignmentRadius: 14.2
+  Cohesion: 78.22
+  CohesionRadius: 19.1
+  Separation: 12.95
+  SeparationRadius: 9.44
+  WorldExtents: {x: 32, y: 32}

@@ -1,0 +1,19 @@
+{
+    "name": "Tofunaut.TofuECS_Boids.Game.View",
+    "rootNamespace": "",
+    "references": [
+        "GUID:82de5c4d5c7343042802fb02bd27ea44"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "TofuECS.dll",
+        "TofuECS.Utilities.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

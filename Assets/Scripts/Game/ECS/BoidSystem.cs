@@ -2,10 +2,14 @@
 using System.Numerics;
 using Tofunaut.TofuECS;
 
-namespace Game.ECS
+namespace Tofunaut.TofuECS_Boids.Game.ECS
 {
-    public class BoidSystem : ISystem
+    public class BoidSystem : ISystem, ISystemEventListener<SetBoidConfigInput>, ISystemEventListener<CreateBoidInput>
     {
+        public delegate void BoidCreatedDelegate(int entityId, in Boid boid);
+
+        public static event BoidCreatedDelegate BoidCreated;
+        
         public void Initialize(Simulation s) { }
 
         public unsafe void Process(Simulation s)
@@ -69,7 +73,8 @@ namespace Game.ECS
                 if (numSeparation > 0)
                 {
                     separation /= numSeparation;
-                    boid->Force += (boid->Position - separation) * boidConfig.Separation;
+                    var fromSeparation = boid->Position - separation;
+                    boid->Force += fromSeparation * boidConfig.Separation * MathF.Max(boidConfig.SeparationRadius - fromSeparation.Length(), 0);
                 }
             }
 
@@ -82,13 +87,31 @@ namespace Game.ECS
                 // loop around world
                 if (boid->Position.X < -boidConfig.WorldExtents.X)
                     boid->Position.X = boidConfig.WorldExtents.X;
-                if (boid->Position.X > boidConfig.WorldExtents.X)
+                else if (boid->Position.X > boidConfig.WorldExtents.X)
                     boid->Position.X = -boidConfig.WorldExtents.X;
                 if (boid->Position.Y < -boidConfig.WorldExtents.Y)
                     boid->Position.Y = boidConfig.WorldExtents.Y;
-                if (boid->Position.Y > boidConfig.WorldExtents.Y)
+                else if (boid->Position.Y > boidConfig.WorldExtents.Y)
                     boid->Position.Y = -boidConfig.WorldExtents.Y;
             }
+        }
+
+        public void OnSystemEvent(Simulation s, in SetBoidConfigInput eventData)
+        {
+            s.SetSingletonComponent(eventData.Config);
+        }
+
+        public void OnSystemEvent(Simulation s, in CreateBoidInput eventData)
+        {
+            var entity = s.CreateEntity();
+            var boid = new Boid
+            {
+                Force = Vector2.Zero,
+                Position = eventData.Position,
+                Velocity = eventData.Velocity,
+            };
+            s.Buffer<Boid>().Set(entity, boid);
+            BoidCreated?.Invoke(entity, boid);
         }
     }
 }

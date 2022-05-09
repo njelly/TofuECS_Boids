@@ -142,7 +142,7 @@ Camera:
   m_GameObject: {fileID: 5752726637578001123}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -159,8 +159,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 32
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -194,6 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5752726637692124238}
   - component: {fileID: 6736939474702056818}
+  - component: {fileID: 1491076758756014105}
   m_Layer: 0
   m_Name: AppContext
   m_TagString: Untagged
@@ -233,6 +234,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 5752726636879238883}
+  _monoBehaviourUpdateService: {fileID: 1491076758756014105}
+  _simulationConfig: {fileID: 11400000, guid: 9e4bf7aa05f26ac40a2c91ebda122350, type: 2}
+  _boidViewPrefabReference:
+    m_AssetGUID: 5309f28fdb681914ba5a56a4becd644f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _statsCanvasViewControllerReference:
+    m_AssetGUID: 001425e56868e844095152df74e759b2
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!114 &1491076758756014105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752726637692124237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd3b6bc147a446e804f4c9975007bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5752726638042141390
 GameObject:
   m_ObjectHideFlags: 0

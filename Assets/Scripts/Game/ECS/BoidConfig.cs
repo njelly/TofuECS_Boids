@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace Game.ECS
+namespace Tofunaut.TofuECS_Boids.Game.ECS
 {
     public struct BoidConfig
     {

@@ -2,10 +2,9 @@
 
 namespace Tofunaut.TofuECS_Boids.Game.ECS
 {
-    public struct Boid
+    public struct CreateBoidInput
     {
         public Vector2 Position;
         public Vector2 Velocity;
-        public Vector2 Force;
     }
 }
