@@ -17,7 +17,6 @@ namespace Tofunaut.TofuECS_Boids.Game.ECS
             var boidConfig = s.GetSingletonComponent<BoidConfig>();
             var boidBuffer = s.Buffer<Boid>();
             var i = 0;
-            var j = 0;
             var alignmentRadiusSquared = boidConfig.AlignmentRadius * boidConfig.AlignmentRadius;
             var cohesionRadiusSquared = boidConfig.CohesionRadius * boidConfig.CohesionRadius;
             var separationRadiusSquared = boidConfig.SeparationRadius * boidConfig.SeparationRadius;
@@ -32,6 +31,7 @@ namespace Tofunaut.TofuECS_Boids.Game.ECS
                 var separation = Vector2.Zero;
                 var numSeparation = 0;
 
+                var j = 0;
                 while (boidBuffer.NextUnsafe(ref j, out var otherEntityId, out var otherBoid))
                 {
                     if (entityId == otherEntityId)
