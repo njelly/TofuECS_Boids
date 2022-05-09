@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edf45f561d34062a2fa9c9370dc096b, type: 3}
   m_Name: DefaultSimulationConfig
   m_EditorClassIdentifier: 
-  InitialNumBoids: 26
+  InitialNumBoids: 100
   InitialBoidMinSpeed: 0.1
   InitialBoidMaxSpeed: 2
-  Alignment: 10
-  AlignmentRadius: 5
-  Cohesion: 3
-  CohesionRadius: 5
-  Separation: 4
+  Alignment: 2
+  AlignmentRadius: 4
+  Cohesion: 20.77
+  CohesionRadius: 4.14
+  Separation: 11.5
   SeparationRadius: 5
   WorldExtents: {x: 32, y: 32}
