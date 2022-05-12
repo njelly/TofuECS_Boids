@@ -246,6 +246,11 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  _adjustBoidConfigCanvasViewControllerReference:
+    m_AssetGUID: 450b426b236b36847b9db97a0e63784e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!114 &1491076758756014105
 MonoBehaviour:
   m_ObjectHideFlags: 0

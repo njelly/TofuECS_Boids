@@ -10,6 +10,7 @@ namespace Tofunaut.TofuECS_Boids.Game.ECS
         public float CohesionRadius;
         public float Separation;
         public float SeparationRadius;
+        public float MaxSpeedSquared;
         public float DeltaTime;
         public Vector2 WorldExtents;
     }

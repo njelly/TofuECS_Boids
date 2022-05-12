@@ -13,6 +13,7 @@ namespace Tofunaut.TofuECS_Boids
         [SerializeField] private SimulationConfig _simulationConfig;
         [SerializeField] private AssetReference _boidViewPrefabReference;
         [SerializeField] private AssetReference _statsCanvasViewControllerReference;
+        [SerializeField] private AssetReference _adjustBoidConfigCanvasViewControllerReference;
 
         private CanvasStack _canvasStack;
         private AppStateMachine _appStateMachine;
@@ -22,6 +23,8 @@ namespace Tofunaut.TofuECS_Boids
             _canvasStack = new CanvasStack(_canvas);
             _canvasStack.RegisterViewController<StatsCanvasViewController, StatsCanvasViewModel>(
                 _statsCanvasViewControllerReference);
+            _canvasStack.RegisterViewController<AdjustBoidConfigCanvasViewController, AdjustBoidConfigCanvasViewModel>(
+                _adjustBoidConfigCanvasViewControllerReference);
 
             _appStateMachine = new AppStateMachine();
             _appStateMachine.RegisterState<InGameState, InGameStateRequest>(new InGameState(_canvasStack,

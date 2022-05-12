@@ -82,6 +82,9 @@ namespace Tofunaut.TofuECS_Boids.Game.ECS
             while (boidBuffer.NextUnsafe(ref i, out _, out var boid))
             {
                 boid->Velocity += boid->Force * boidConfig.DeltaTime;
+                if (boid->Velocity.LengthSquared() > boidConfig.MaxSpeedSquared)
+                    boid->Velocity = Vector2.Normalize(boid->Velocity) * MathF.Sqrt(boidConfig.MaxSpeedSquared);
+                
                 boid->Position += boid->Velocity * boidConfig.DeltaTime;
                 
                 // loop around world

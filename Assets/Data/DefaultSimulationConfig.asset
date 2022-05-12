@@ -15,10 +15,11 @@ MonoBehaviour:
   InitialNumBoids: 100
   InitialBoidMinSpeed: 0.1
   InitialBoidMaxSpeed: 2
-  Alignment: 2
-  AlignmentRadius: 4
-  Cohesion: 20.77
-  CohesionRadius: 4.14
-  Separation: 11.5
-  SeparationRadius: 5
+  Alignment: 1
+  AlignmentRadius: 2.5
+  Cohesion: 10
+  CohesionRadius: 4
+  Separation: 20
+  SeparationRadius: 3
+  MaxSpeed: 5
   WorldExtents: {x: 32, y: 32}

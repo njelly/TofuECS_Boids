@@ -30,7 +30,7 @@ namespace Tofunaut.TofuECS_Boids.Game
                 Config = new BoidConfig(),
             };
             _config.GetBoidConfig(ref _setBoidConfigInput.Config);
-            _config.Changed += OnSimulationConfigChanged;
+            _config.Changed += UpdateBoidConfigValues;
             _simulation.RegisterSingletonComponent(_setBoidConfigInput.Config);
             
             BoidSystem.BoidCreated += OnBoidCreated;
@@ -58,12 +58,6 @@ namespace Tofunaut.TofuECS_Boids.Game
             _boidViewManager.SyncBoidView(entityid, boid);
         }
 
-        private void OnSimulationConfigChanged()
-        {
-            _config.GetBoidConfig(ref _setBoidConfigInput.Config);
-            _simulation.SystemEvent(_setBoidConfigInput);
-        }
-
         public void DoTick()
         {
             _simulation.Tick();
@@ -73,9 +67,15 @@ namespace Tofunaut.TofuECS_Boids.Game
                 _boidViewManager.SyncBoidView(entityId, boid);
         }
 
+        public void UpdateBoidConfigValues()
+        {
+            _config.GetBoidConfig(ref _setBoidConfigInput.Config);
+            _simulation.SystemEvent(_setBoidConfigInput);
+        }
+
         public void Dispose()
         {
-            _config.Changed -= OnSimulationConfigChanged;
+            _config.Changed -= UpdateBoidConfigValues;
             _simulation?.Dispose();
         }
     }

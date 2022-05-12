@@ -18,6 +18,7 @@ namespace Tofunaut.TofuECS_Boids.Game
         public float CohesionRadius;
         public float Separation;
         public float SeparationRadius;
+        public float MaxSpeed;
         public Vector2 WorldExtents;
 
         private void OnValidate()
@@ -35,6 +36,7 @@ namespace Tofunaut.TofuECS_Boids.Game
             config.SeparationRadius = SeparationRadius;
             config.WorldExtents = new System.Numerics.Vector2(WorldExtents.x, WorldExtents.y);
             config.DeltaTime = Time.deltaTime;
+            config.MaxSpeedSquared = MaxSpeed * MaxSpeed;
         }
     }
 }

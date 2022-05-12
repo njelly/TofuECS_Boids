@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/StatsCanvasView.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 450b426b236b36847b9db97a0e63784e
+    m_Address: Assets/Prefabs/AdjustBoidConfigCanvasView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 42cedf2d657a990438ddc9d21095966f, type: 2}
   m_SchemaSet:

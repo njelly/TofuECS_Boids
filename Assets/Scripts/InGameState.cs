@@ -47,6 +47,53 @@ namespace Tofunaut.TofuECS_Boids
             {
                 GetBoidsCount = () => _simulationRunner.NumBoids,
             });
+            
+            await _canvasStack.Push<AdjustBoidConfigCanvasViewController, AdjustBoidConfigCanvasViewModel>(
+                new AdjustBoidConfigCanvasViewModel
+                {
+                    AlignmentChanged = v =>
+                    {
+                        request.SimulationConfig.Alignment = v;
+                        _simulationRunner.UpdateBoidConfigValues();
+                    },
+                    AlignmentRadiusChanged = v =>
+                    {
+                        request.SimulationConfig.AlignmentRadius = v;
+                        _simulationRunner.UpdateBoidConfigValues();
+                    },
+                    CohesionChanged = v =>
+                    {
+                        request.SimulationConfig.Cohesion = v;
+                        _simulationRunner.UpdateBoidConfigValues();
+                    },
+                    CohesionRadiusChanged = v =>
+                    {
+                        request.SimulationConfig.CohesionRadius = v;
+                        _simulationRunner.UpdateBoidConfigValues();
+                    },
+                    SeparationChanged = v =>
+                    {
+                        request.SimulationConfig.Separation = v;
+                        _simulationRunner.UpdateBoidConfigValues();
+                    },
+                    SeparationRadiusChanged = v =>
+                    {
+                        request.SimulationConfig.SeparationRadius = v;
+                        _simulationRunner.UpdateBoidConfigValues();
+                    },
+                    MaxSpeedChanged = v =>
+                    {
+                        request.SimulationConfig.MaxSpeed = v;
+                        _simulationRunner.UpdateBoidConfigValues();
+                    },
+                    InitialAlignment = request.SimulationConfig.Alignment,
+                    InitialAlignmentRadius = request.SimulationConfig.AlignmentRadius,
+                    InitialCohesion = request.SimulationConfig.Cohesion,
+                    InitialCohesionRadius = request.SimulationConfig.CohesionRadius,
+                    InitialSeparation = request.SimulationConfig.Separation,
+                    InitialSeparationRadius = request.SimulationConfig.SeparationRadius,
+                    InitialMaxSpeed = request.SimulationConfig.MaxSpeed,
+                });
         }
 
         public override Task OnExit()
