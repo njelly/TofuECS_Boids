@@ -45,7 +45,7 @@ namespace Tofunaut.TofuECS_Boids.Game.View
         {
             var t = _entityIdToBoid[entityId].transform;
             t.position = new Vector3(boid.Position.X, boid.Position.Y);
-            t.rotation = Quaternion.LookRotation(new Vector3(boid.Velocity.X, boid.Velocity.Y), Vector3.forward);
+            t.rotation = Quaternion.Slerp(t.rotation, Quaternion.LookRotation(new Vector3(boid.Velocity.X, boid.Velocity.Y), Vector3.forward), Time.deltaTime * 10f);
         }
     }
 }
