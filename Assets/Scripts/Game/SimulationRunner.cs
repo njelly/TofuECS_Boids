@@ -30,7 +30,6 @@ namespace Tofunaut.TofuECS_Boids.Game
                 Config = new BoidConfig(),
             };
             _config.GetBoidConfig(ref _setBoidConfigInput.Config);
-            _config.Changed += UpdateBoidConfigValues;
             _simulation.RegisterSingletonComponent(_setBoidConfigInput.Config);
             
             BoidSystem.BoidCreated += OnBoidCreated;
@@ -47,7 +46,7 @@ namespace Tofunaut.TofuECS_Boids.Game
                         UnityEngine.Random.Range(-_config.WorldExtents.x, _config.WorldExtents.x),
                         UnityEngine.Random.Range(-_config.WorldExtents.y, _config.WorldExtents.y)),
                     Velocity = new Vector2(1, 0).RotatedByRadians(UnityEngine.Random.Range(0, ShapeMath2D.PI2)) 
-                               * UnityEngine.Random.Range(_config.InitialBoidMinSpeed, _config.InitialBoidMaxSpeed),
+                               * UnityEngine.Random.value * _config.MaxSpeed,
                 });
             }
         }
@@ -60,6 +59,8 @@ namespace Tofunaut.TofuECS_Boids.Game
 
         public void DoTick()
         {
+            _config.GetBoidConfig(ref _setBoidConfigInput.Config);
+            _simulation.SystemEvent(_setBoidConfigInput);
             _simulation.Tick();
             var buffer = _simulation.Buffer<Boid>();
             var i = 0;
@@ -67,15 +68,8 @@ namespace Tofunaut.TofuECS_Boids.Game
                 _boidViewManager.SyncBoidView(entityId, boid);
         }
 
-        public void UpdateBoidConfigValues()
-        {
-            _config.GetBoidConfig(ref _setBoidConfigInput.Config);
-            _simulation.SystemEvent(_setBoidConfigInput);
-        }
-
         public void Dispose()
         {
-            _config.Changed -= UpdateBoidConfigValues;
             _simulation?.Dispose();
         }
     }

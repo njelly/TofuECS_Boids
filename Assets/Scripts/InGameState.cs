@@ -54,37 +54,30 @@ namespace Tofunaut.TofuECS_Boids
                     AlignmentChanged = v =>
                     {
                         request.SimulationConfig.Alignment = v;
-                        _simulationRunner.UpdateBoidConfigValues();
                     },
                     AlignmentRadiusChanged = v =>
                     {
                         request.SimulationConfig.AlignmentRadius = v;
-                        _simulationRunner.UpdateBoidConfigValues();
                     },
                     CohesionChanged = v =>
                     {
                         request.SimulationConfig.Cohesion = v;
-                        _simulationRunner.UpdateBoidConfigValues();
                     },
                     CohesionRadiusChanged = v =>
                     {
                         request.SimulationConfig.CohesionRadius = v;
-                        _simulationRunner.UpdateBoidConfigValues();
                     },
                     SeparationChanged = v =>
                     {
                         request.SimulationConfig.Separation = v;
-                        _simulationRunner.UpdateBoidConfigValues();
                     },
                     SeparationRadiusChanged = v =>
                     {
                         request.SimulationConfig.SeparationRadius = v;
-                        _simulationRunner.UpdateBoidConfigValues();
                     },
                     MaxSpeedChanged = v =>
                     {
                         request.SimulationConfig.MaxSpeed = v;
-                        _simulationRunner.UpdateBoidConfigValues();
                     },
                     InitialAlignment = request.SimulationConfig.Alignment,
                     InitialAlignmentRadius = request.SimulationConfig.AlignmentRadius,

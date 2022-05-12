@@ -10,8 +10,6 @@ namespace Tofunaut.TofuECS_Boids.Game
         public event Action Changed;
         
         public int InitialNumBoids;
-        public float InitialBoidMinSpeed;
-        public float InitialBoidMaxSpeed;
         public float Alignment;
         public float AlignmentRadius;
         public float Cohesion;
