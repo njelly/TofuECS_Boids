@@ -47,6 +47,7 @@ namespace Tofunaut.TofuECS_Boids.Game.Canvas
             {
                 slider.onValueChanged.RemoveAllListeners();
                 slider.SetValueWithoutNotify(0.5f);
+                label.text = initialValue.ToString("F2");
                 slider.onValueChanged.AddListener(v =>
                 {
                     var newValue = v * 2f * initialValue;
